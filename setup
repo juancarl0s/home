@@ -206,6 +206,11 @@ printf "\n--------------------\n"
 sudo apt-get install uuid-runtime
 
 printf "\n--------------------\n"
+printf "Installing xclip"
+printf "\n--------------------\n"
+sudo apt install xclip
+
+printf "\n--------------------\n"
 printf "Installing qbittorrent"
 printf "\n--------------------\n"
 sudo apt install qbittorrent
