@@ -23,13 +23,6 @@ sudo apt-get update
 sudo apt-get dist-upgrade			# Smarter than upgrade. Handles updating/removing dependencies
 
 printf "\n--------------------\n"
-printf "Installing vim"
-printf "\n--------------------\n"
-sudo add-apt-repository ppa:jonathonf/vim	# More up-to-date than the default provided by the software manager
-sudo apt-get update
-sudo apt-get install vim-gnome              # Gnome version is necessary for gvim/clipboard support
-
-printf "\n--------------------\n"
 printf "Installing git"
 printf "\n--------------------\n"
 sudo add-apt-repository ppa:git-core/ppa	# More up-to-date than the default provided by the software manager
@@ -93,45 +86,6 @@ printf "\n--------------------\n"
 printf "Disable apache2 service"
 printf "\n--------------------\n"
 sudo systemctl disable apache2.service
-
-#printf "\n--------------------\n"
-#printf "Installing postgreSQL"
-#printf "\n--------------------\n"
-#wget -q -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - # See: https://www.postgresql.org/download/linux/ubuntu/
-#line='deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main'
-#file='/etc/apt/sources.list.d/pgdg.list'
-#grep -q -F "$line" $file || sudo sh -c "echo \"$line\" >> $file" # Only add line if it doesn't already exist
-#sudo apt-get update
-#sudo apt-get install postgresql-10 		# May need to update version number
-#sudo apt-get install postgresql-contrib-10
-
-#echo -n "Please enter password for default postgres user: "
-#read password
-#sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '$password'"
-
-# Create postgres user with same name as operating system user (makes
-# local login via IDENT authentication possible - in pgAdminIII, you must
-# leave host and password blank, and set username to your username).
-# NOTE: Decided to set password for default postgres user instead,
-# because clients connecting over TCP/IP need to use password
-# authentication anyways (IDENT only works locally):
-#user=$USER
-#sudo -u postgres createuser -s $user    
-
-#printf "\n--------------------\n"
-#printf "Installing pgAdmin"
-#printf "\n--------------------\n"
-#sudo apt-get install pgadmin3			# People seem to prefer pgadmin3 over pgadmin4
-
-#printf "\n--------------------\n"
-#printf "Installing mssql-tools"
-#printf "\n--------------------\n"
-#wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-#line=$(wget -q -O - https://packages.microsoft.com/config/ubuntu/16.04/prod.list)
-#file='/etc/apt/sources.list.d/msprod.list'
-#grep -q -F "$line" $file || sudo sh -c "echo \"$line\" >> $file" # Only add line if it doesn't already exist
-#sudo apt-get update 
-#sudo apt-get install mssql-tools unixodbc-dev
 
 printf "\n--------------------\n"
 printf "Installing docker"
@@ -276,3 +230,21 @@ printf "Installing pgAdmin"
 printf "\n--------------------\n"
 sudo apt-get install pgadmin3
 sudo apt-get install pgadmin4
+
+printf "\n--------------------\n"
+printf "Installing pip and virtualenv"
+printf "\n--------------------\n"
+sudo apt-get install python-pip python-dev build-essential
+sudo pip install --upgrade pip
+sudo pip install --upgrade virtualenv
+
+# # Flutter
+# wget -P ~/Downloads https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.9.1+hotfix.4-stable.tar.xz
+# tar xf ~/Downloads/flutter_linux_v1.9.1+hotfix.4-stable.tar.xz ~/src
+# export PATH="$PATH:/home/juan/src/flutter/bin"
+# flutter config --no-analytics
+
+# wget -P ~/Downloads https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+# sudo apt-get install ~/Downloads/cloudflared-stable-linux-amd64.deb
+# cloudflared -v
+# # and follow https://bendews.com/posts/implement-dns-over-https/
