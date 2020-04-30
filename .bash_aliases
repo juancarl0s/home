@@ -1,0 +1,6 @@
+alias gtr='go test -v -cover -race ./...'
+alias godep='go get -u all && go mod tidy && go mod vendor'
+alias gta='go test -race ./...'
+alias gof='go fmt ./...'
+alias c='xclip -selection clipboard'
+alias uuidc='uuidgen | xclip -selection clipboard'

@@ -1,0 +1,24 @@
+# Enforce SSH
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[user]
+	name = juan
+	email = 
+[core]
+	editor = code
+[credential]
+	helper = cache
+[alias]
+	co = checkout
+	b = branch
+	st = status
+	su = submodule update
+	sur = submodule update --remote
+	rso = remote show origin
+	rpo = remote prune origin
+	rao = remote add origin
+	d = diff
+	dc = diff --cached
+	lg = log --all --decorate --oneline --graph
+[cola]
+	spellcheck = false
