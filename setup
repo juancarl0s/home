@@ -30,6 +30,11 @@ sudo apt-get update
 sudo apt-get install git-all
 
 printf "\n--------------------\n"
+printf "Installing git cola"
+printf "\n--------------------\n"
+apt-get install git-cola
+
+printf "\n--------------------\n"
 printf "Installing byobu"
 printf "\n--------------------\n"
 sudo apt-get install byobu
