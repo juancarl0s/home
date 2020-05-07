@@ -179,6 +179,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 printf "\n--------------------\n"
+printf "Installing node.js"
+printf "\n--------------------\n"
+nvm install 14.2.0 # Update version
+
+printf "\n--------------------\n"
+printf "Installing nodemon"
+printf "\n--------------------\n"
+npm install -g nodemon
+
+printf "\n--------------------\n"
 printf "Installing doctoc"
 printf "\n--------------------\n"
 npm install -g doctoc
