@@ -234,7 +234,7 @@ printf "\n--------------------\n"
 printf "Installing postgreSQL"
 printf "\n--------------------\n"
 wget -q -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - # See: https://www.postgresql.org/download/linux/ubuntu/
-line='deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main'
+line='deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/$(lsb_release -cs)-pgdg main'
 file='/etc/apt/sources.list.d/pgdg.list'
 grep -q -F "$line" $file || sudo sh -c "echo \"$line\" >> $file" # Only add line if it doesn't already exist
 sudo apt-get update
