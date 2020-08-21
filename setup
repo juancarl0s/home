@@ -57,8 +57,8 @@ git config --global alias.lg "log --all --decorate --oneline --graph"
 printf "\n--------------------\n"
 printf "Installing go"
 printf "\n--------------------\n"
-wget -P ~/Downloads https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf ~/Downloads/go1.14.2.linux-amd64.tar.gz
+wget -P ~/Downloads https://dl.google.com/go/go1.15.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go1.15.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin     # Not permament unless set in $HOME/.profile, but necessary for :GoInstallBinaries to work (see below)
 
 printf "\n--------------------\n"
